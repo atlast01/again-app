@@ -4,16 +4,16 @@
 
 @section('content')
 <div class="row mb-3 justify-content-center">
-    <div class="col-lg-6 col-md-8 d-flex justify-content-between align-items-center">
-        <h3 class="font-weight-bold" style="color: var(--highlight-color);">✏️ แก้ไขหมวดหมู่</h3>
+    <div class="col-lg-8 col-md-10 d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
+        <h3 class="font-weight-bold mb-2 mb-sm-0" style="color: var(--highlight-color);">✏️ แก้ไขหมวดหมู่</h3>
         <a href="{{ route('admin.categories') }}" class="btn btn-sm btn-outline-secondary">🔙 กลับไปหน้ารายการ</a>
     </div>
 </div>
 
 @if(session('success'))
 <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8">
-        <div class="alert alert-success alert-auto-hide shadow-sm border-0" style="border-left: 5px solid #28a745;">
+    <div class="col-lg-8 col-md-10">
+        <div class="alert alert-success alert-auto-hide shadow-sm border-0">
             ✅ {{ session('success') }}
         </div>
     </div>
@@ -21,9 +21,9 @@
 @endif
 
 <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8">
+    <div class="col-lg-8 col-md-10">
         <div class="card shadow-sm border-0">
-            <div class="card-body p-5">
+            <div class="card-body p-3 p-md-5">
                 <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -35,13 +35,13 @@
                     
                     <div class="form-group mb-4">
                         <label class="font-weight-bold">รายละเอียดเพิ่มเติม</label>
-                        <textarea name="description" class="form-control bg-light border-0" rows="5">{{ $category->description }}</textarea>
+                        <textarea name="description" class="form-control bg-light border-0" rows="6">{{ $category->description }}</textarea>
                     </div>
                     
                     <hr class="my-4">
                     
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ route('admin.categories') }}" class="btn btn-light px-4 mr-2">ยกเลิก</a>
+                    <div class="d-flex flex-column flex-sm-row justify-content-end">
+                        <a href="{{ route('admin.categories') }}" class="btn btn-light px-4 mb-2 mb-sm-0 mr-sm-2">ยกเลิก</a>
                         <button type="submit" class="btn btn-primary-custom px-5 font-weight-bold">💾 บันทึกการแก้ไข</button>
                     </div>
                 </form>
