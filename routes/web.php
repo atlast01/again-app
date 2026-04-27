@@ -32,4 +32,12 @@ Route::prefix('admin')->group(function () {
     
     // Restaurant Management Page (CRUD)
     Route::get('/restaurants', [AdminController::class, 'restaurants'])->name('admin.restaurants');
+
+    // 🟢 2 เส้นทางใหม่ที่เพิ่มเข้ามาสำหรับระบบ CRUD หมวดหมู่
+    Route::post('/categories/store', [AdminController::class, 'storeCategory'])->name('admin.categories.store');
+    Route::delete('/categories/{id}', [AdminController::class, 'deleteCategory'])->name('admin.categories.destroy');
+
+    // 🟡 2 เส้นทางใหม่สำหรับระบบแก้ไขหมวดหมู่
+    Route::get('/categories/{id}/edit', [AdminController::class, 'editCategory'])->name('admin.categories.edit');
+    Route::put('/categories/{id}', [AdminController::class, 'updateCategory'])->name('admin.categories.update');
 });
