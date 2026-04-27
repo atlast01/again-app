@@ -23,7 +23,7 @@ class AdminController extends Controller
     public function categories()
     {
         $categories = Category::all();
-        return view('admin.categories', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     /** หน้าจัดการร้านอาหาร */
@@ -31,7 +31,9 @@ class AdminController extends Controller
     {
         // with('category') คือการดึงข้อมูลหมวดหมู่มาพร้อมกับร้านอาหารเลย
         $restaurants = Restaurant::with('category')->get();
-        return view('admin.restaurants', compact('restaurants'));
+        $categories = Category::all();
+
+        return view('admin.restaurants', compact('restaurants', 'categories'));
     }
 
     /** Create Function */

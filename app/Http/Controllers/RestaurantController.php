@@ -15,8 +15,8 @@ class RestaurantController extends Controller
         // ดึงข้อมูลร้านอาหารทั้งหมดจากฐานข้อมูล
         $restaurants = Restaurant::all();
         
-        // ส่งข้อมูลไปที่ไฟล์ resources/views/index.blade.php
-        return view('index', compact('restaurants'));
+        // ส่งข้อมูลไปที่ไฟล์ resources/views/frontend/home.blade.php
+        return view('frontend.home', compact('restaurants'));
     }
 
     /**
