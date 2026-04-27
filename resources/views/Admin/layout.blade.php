@@ -8,22 +8,36 @@
     <style>
         :root { --bg-color: #f9f6f5; --primary-color: #F0A202; --highlight-color: #522B29; }
         body { background-color: var(--bg-color); color: var(--highlight-color); font-family: sans-serif; }
-        /* ตกแต่ง Navbar ของ Admin ให้เป็นสีเข้ม */
+
+        /* Navbar Admin */
         .navbar-admin { background-color: var(--highlight-color); }
         .navbar-admin .navbar-brand, .navbar-admin .nav-link { color: white !important; }
         .navbar-admin .nav-link:hover { color: var(--primary-color) !important; }
+
         /* ตกแต่งการ์ด */
         .card-custom { border: none; border-left: 5px solid var(--primary-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        /* Customize the menu on your mobile phone. */
+        @media (max-width: 767.98px) {
+            .navbar-collapse {
+                background-color: #40201f;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body>
 
-<nav class=".col .col-sm .col-md .col-lg .col-xl navbar navbar-expand-lg navbar-admin sticky-top ">
+<nav class="navbar navbar-expand-lg navbar-admin navbar-dark sticky-top shadow-sm">
   <div class="container">
-    <a class="navbar-brand" href="{{ route('admin.dashboard') }}">⚙️ Admin Panel</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    <a class="navbar-brand font-weight-bold" href="{{ route('admin.dashboard') }}">⚙️ Admin Panel</a>
+
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="{{ route('admin.categories') }}">🏷️ จัดการหมวดหมู่</a></li>
@@ -44,10 +58,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function() {
-        // เมื่อเจอคลาส alert-auto-hide ให้รอ 3 วินาที (3000ms) แล้วค่อยๆ จางหายไป
+        // alert-auto-hide: Wait 3 seconds (2000ms). 
         setTimeout(function() {
             $(".alert-auto-hide").fadeOut(1000, function() {
-                $(this).remove(); // ลบออกจากหน้าเว็บไปเลย
+                $(this).remove();
             });
         }, 2000);
     });
